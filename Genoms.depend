@@ -1,0 +1,78 @@
+# depslib dependency file v1.0
+1497284071 source:c:\users\romanchuk.serg\desktop\genoms\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"Evolution.h"
+	"Person.h"
+	"Gene.h"
+
+1497285020 source:c:\users\romanchuk.serg\desktop\genoms\src\evolution.cpp
+	"Evolution.h"
+
+1497108959 c:\users\romanchuk.serg\desktop\genoms\include\evolution.h
+	<iostream>
+	"Person.h"
+	"PersonManager.h"
+	"Genotype.h"
+
+1497111994 c:\users\romanchuk.serg\desktop\genoms\include\person.h
+	<stdlib.h>
+	"Gene.h"
+
+1497111986 source:c:\users\romanchuk.serg\desktop\genoms\src\person.cpp
+	"Person.h"
+
+1497255254 c:\users\romanchuk.serg\desktop\genoms\include\gene.h
+	<stdlib.h>
+	<iostream>
+
+1497111280 source:c:\users\romanchuk.serg\desktop\genoms\src\gene.cpp
+	"Gene.h"
+
+1496922898 c:\users\romanchuk.serg\desktop\genoms\include\genemanager.h
+	<stdlib.h>
+	"Gene.h"
+
+1496929414 source:c:\users\romanchuk.serg\desktop\genoms\src\genemanager.cpp
+	"GeneManager.h"
+
+1497254353 source:c:\users\romanchuk.serg\desktop\genoms\src\personmanager.cpp
+	"PersonManager.h"
+
+1497112218 c:\users\romanchuk.serg\desktop\genoms\include\personmanager.h
+	"Person.h"
+	"Gene.h"
+	"Genotype.h"
+	"GenotypeManager.h"
+	<iostream>
+
+1497283234 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
+	"Genotype.h"
+
+1497283199 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
+	"Gene.h"
+	"MaterialList.h"
+	<complex>
+
+1497284499 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype_001.cpp
+	"Genotype_001.h"
+
+1496932678 c:\users\romanchuk.serg\desktop\genoms\include\genotype_001.h
+	"Gene.h"
+	"Genotype.h"
+
+1497254352 source:c:\users\romanchuk.serg\desktop\genoms\src\genotypemanager.cpp
+	"GenotypeManager.h"
+
+1497112469 c:\users\romanchuk.serg\desktop\genoms\include\genotypemanager.h
+	"Genotype.h"
+	"Genotype_001.h"
+
+1497282429 c:\users\romanchuk.serg\desktop\genoms\include\materiallist.h
+	<math.h>
+	<cstring>
+
+1497284486 source:c:\users\romanchuk.serg\desktop\genoms\src\materiallist.cpp
+	"MaterialList.h"
+
