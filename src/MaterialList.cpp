@@ -4,17 +4,22 @@ MaterialList::MaterialList()
 {
         materialCount = 0;
         materialRecord = 0;
-
-        fileName = new char [11];
-        strcpy(fileName, "mlData.bin");
+        fileName = 0;
         path = 0;
-
-        loadData();
 }
 
-MaterialList::MaterialList(char * fileName, char * path) : MaterialList()
+MaterialList::MaterialList(char * path, char * fileName)
 {
+        materialCount = 0;
+        materialRecord = 0;
 
+        this->fileName = new char [strlen(fileName)+1];
+        strncpy(this->fileName, fileName, strlen(fileName)+1);
+
+        this->path = new char [strlen(path)+1];
+        strncpy(this->path, path, strlen(path)+1);
+
+        loadData();
 }
 
 MaterialList::~MaterialList()
@@ -31,10 +36,18 @@ int MaterialList::getCountMaterial()
 
 bool MaterialList::getMaterialName(int number, char * name)
 {
-        if(number >= 0 || number < materialCount)
+        if((number >= 0 || number < materialCount) && strlen(name) > 0)
         {
-            name = new char [strlen(materialRecord[number].name) + 1];
-            strcpy(name, materialRecord[number].name);
+            //std::cout<<materialRecord[number].name<<std::endl;
+            if(strlen(name) < strlen(materialRecord[number].name))
+            {
+                strncpy(name, materialRecord[number].name, strlen(name));
+                //name[strlen(name)-1] = '\0';
+            }
+            else
+            {
+                strcpy(name, materialRecord[number].name);
+            }
             return true;
         }
 
@@ -77,6 +90,20 @@ bool MaterialList::getMaterialNearIm(int number, double length, double & im)
         return getMaterialNear(number, length, tmp, im);
 }
 
+double MaterialList::getMaterialNearRe(int number, double length)
+{
+    double re = 0;
+    getMaterialNearRe(number, length, re);
+    return re;
+}
+
+double MaterialList::getMaterialNearIm(int number, double length)
+{
+    double im = 0;
+    getMaterialNearIm(number, length, im);
+    return im;
+}
+
 bool MaterialList::getMaterialNear(int number, double length, double & re, double & im)
 {
         if(number < 0 || number >= materialCount)
@@ -104,6 +131,13 @@ bool MaterialList::getMaterialNear(int number, double length, double & re, doubl
 
         return false;
 }
+
+std::complex<double> MaterialList::getMaterialNear(int number, double length)
+{
+    std::complex <double> e(getMaterialNearRe(number, length), getMaterialNearIm(number, length));
+    return e;
+}
+
 //---------------------------------------------------------------------------
 //Загрузка значений диэлектрической проницаемости (ДП) материалов из набора файлов
 //используемых для программы PCM.
@@ -123,68 +157,36 @@ bool MaterialList::loadData()
 {
     clearData();
 
-    materialCount = 5;
+    char fullPath[1000] = "";
+    strcat(fullPath, path);
+    strcat(fullPath, "\\");
+    strcat(fullPath, fileName);
+
+    std::ifstream fin(fullPath, std::ios_base::binary);
+
+    fin.read((char*)&materialCount, sizeof materialCount);
     materialRecord = new MaterialRecord[materialCount];
+
     for(int i = 0; i < materialCount; i++)
     {
-        materialRecord[i].name = new char [2];
-        strcpy(materialRecord[i].name, "O");
+        int len;
+        fin.read((char*)&len, sizeof len);
+        materialRecord[i].name = new char[len+1];
+        fin.read(materialRecord[i].name, len);
 
-        materialRecord[i].propertyCount = 2;
+        fin.read((char*)&materialRecord[i].propertyCount, sizeof materialRecord[i].propertyCount);
         materialRecord[i].propertyRecord = new PropertyRecord[materialRecord[i].propertyCount];
-        materialRecord[i].propertyRecord[0].length = 300;
-        materialRecord[i].propertyRecord[0].re = 1;
-        materialRecord[i].propertyRecord[0].im = 1;
-        materialRecord[i].propertyRecord[1].length = 1000;
-        materialRecord[i].propertyRecord[1].re = 10;
-        materialRecord[i].propertyRecord[1].im = 10;
-    }
-        /*
 
-        TIniFile *Ini = new TIniFile(String(contentPath) + String(contentFileName));
-        materialCount = Ini->ReadString("main", "count", "0").ToInt();
-
-        if(materialCount > 0)
+        for(int j = 0; j < materialRecord[i].propertyCount; j++)
         {
-                materialRecord = new MaterialRecord[materialCount];
-
-                int countRec;
-
-                for(int i = 0; i < materialCount; i++)
-                {
-                        materialRecord[i].name = strdup(Ini->ReadString("item_" + String(i), "name", "none").c_str());
-
-                        countRec = 0;
-
-                        std::fstream file((String(contentPath) + Ini->ReadString("item_" + String(i), "fileName", "none")).c_str(), ios::binary|ios::in);
-                        if(!file.fail())
-                        {
-                                file.read((char*)&countRec, 4);
-
-                                materialRecord[i].propertyCount = countRec;
-                                materialRecord[i].propertyRecord = new PropertyRecord[countRec];
-
-                                for(int j = 0; j < countRec; j++)
-                                {
-                                        file.ignore(10);
-                                        file.read((char*)&materialRecord[i].propertyRecord[j].length, 8);
-                                        file.ignore(1);
-                                        file.read((char*)&materialRecord[i].propertyRecord[j].re, 8);
-                                        file.ignore(1);
-                                        file.read((char*)&materialRecord[i].propertyRecord[j].im, 8);
-                                        file.ignore(18);
-
-                                        //materialRecord[i].propertyRecord[j].length = materialRecord[i].propertyRecord[j].length * 1000;
-                                }
-
-                                //file.close();
-                        }
-                }
+            fin.read((char*)&materialRecord[i].propertyRecord[j].length, sizeof materialRecord[i].propertyRecord[j].length);
+            fin.read((char*)&materialRecord[i].propertyRecord[j].re, sizeof materialRecord[i].propertyRecord[j].re);
+            fin.read((char*)&materialRecord[i].propertyRecord[j].im, sizeof materialRecord[i].propertyRecord[j].im);
         }
+    }
+    fin.close();
 
-        //saveData();
-*/
-        return true;
+    return true;
 }
 
 bool MaterialList::saveData()

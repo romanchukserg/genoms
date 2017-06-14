@@ -1,8 +1,12 @@
 #include "Evolution.h"
 
-Evolution::Evolution()
+Evolution::Evolution(int countPerson, int maxAge, double minFitness, Genotype & gt)
 {
-    countPerson = 100;
+    this->countPerson = countPerson;
+    this->maxAge = maxAge;
+    this->minFitness = minFitness;
+
+    PersonManager::ini(gt);
 
     population = 0;
     parents = 0;
@@ -11,43 +15,36 @@ Evolution::Evolution()
 
 Evolution::~Evolution()
 {
+    clearPopulation();
 }
 
 void Evolution::run()
 {
-    std::cout << "run\n";
-
-    Genotype * gt = GenotypeManager::create(1);
-    gt->setGeneValueMax(1, 0.3);
-    //gt->setGeneValueMax(1, 0.3);
-    gt->setTarget(std::complex<double> (5, 5));
-    PersonManager::ini(*gt);
-    delete gt;
-
-    int countAge = 0;
+    std::cout << "\n\n run";
 
     createPopulation();
 
-    while(countAge < 1000)
+    int countAge = 0;
+    while(countAge < maxAge)
     {
         crossing();
         mutation();
         calculationFitness();
         if(selection())
         {
-            std::cout << " - " << countAge;
+            std::cout << "\ncountAge " << countAge;
+
             return;
         }
-
         countAge++;
     }
 
-    std::cout << "NO";
+    std::cout << "-NO";
 }
 
 bool Evolution::clearPopulation()
 {
-    std::cout << "clearPopulation\n";
+    //std::cout << "clearPopulation\n";
 
     for(int i = 0; i < countPerson; i++)
     {
@@ -59,7 +56,7 @@ bool Evolution::clearPopulation()
 
 bool Evolution::createPopulation()
 {
-    std::cout << "createPopulation\n";
+    //std::cout << "createPopulation\n";
 
     population = new Person*[countPerson*2];
     parents = population;
@@ -77,7 +74,7 @@ bool Evolution::createPopulation()
 
 bool Evolution::crossing()
 {
-    std::cout << "crossing\n";
+    //std::cout << "crossing\n";
 
     for(int i = 0; i < countPerson; i+=2)
     {
@@ -89,7 +86,7 @@ bool Evolution::crossing()
 
 bool Evolution::mutation()
 {
-    std::cout << "mutation\n";
+    //std::cout << "mutation\n";
 
     for(int i = 0; i < countPerson; i++)
     {
@@ -100,7 +97,7 @@ bool Evolution::mutation()
 
 bool Evolution::calculationFitness()
 {
-    std::cout << "calculationFitness\n";
+    //std::cout << "calculationFitness\n";
 
     for(int i = 0; i < countPerson; i++)
     {
@@ -111,7 +108,7 @@ bool Evolution::calculationFitness()
 
 bool Evolution::selection()
 {
-    std::cout << "selection\n";
+    //std::cout << "selection\n";
 
     bool flag = true;
     Person *p;
@@ -139,24 +136,25 @@ bool Evolution::selection()
         childs[i] = 0;
     }
 
-    //std::cout << parents[0]->getFitness() << std::endl;
-
-    if(parents[0]->getFitness() < 0.001)
+    if(parents[0]->getFitness() < minFitness)
     {
-        MaterialList mr;
+            MaterialList mr("C:\\MaterialListCreate", "_mlData.bin");
             double re1, im1, re2, im2;
             mr.getMaterialNear(parents[0]->getGeneValue(2), parents[0]->getGeneValue(0), re1, im1);
             mr.getMaterialNear(parents[0]->getGeneValue(3), parents[0]->getGeneValue(0), re2, im2);
-
-            std::cout << "YES " << parents[0]->getFitness();
-            std::cout << "len: " << parents[0]->getGeneValue(0) << " ";
-            std::cout << "v: " << parents[0]->getGeneValue(1) << " ";
-            std::cout << "re1: " << re1 << " ";
-            std::cout << "im1: " << im1 << " ";
-            std::cout << "re2: " << re2 << " ";
-            std::cout << "im2: " << im2 << " ";
-
-        clearPopulation();
+            char name[100];
+            std::cout << "-YES ";
+            std::cout << "\nfitness: " << parents[0]->getFitness();
+            std::cout << "\nlen: " << parents[0]->getGeneValue(0);
+            std::cout << "\nv: " << parents[0]->getGeneValue(1);
+            mr.getMaterialName(parents[0]->getGeneValue(2), name);
+            std::cout << "\nM1: " << name;
+            std::cout << "\nre1: " << re1;
+            std::cout << "\nim1: " << im1;
+            mr.getMaterialName(parents[0]->getGeneValue(3), name);
+            std::cout << "\nM2: " << name;
+            std::cout << "\nre2: " << re2;
+            std::cout << "\nim2: " << im2;
 
         return true;
     }

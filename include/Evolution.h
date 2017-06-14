@@ -11,12 +11,15 @@
 class Evolution
 {
     public:
-        Evolution();
+        Evolution(int countPerson, int maxAge, double minFitness, Genotype & gt);
         ~Evolution();
 
         void run();
 
     private:
+        int maxAge;
+        double minFitness;
+
         int countPerson;
         Person **population;
         Person **parents;

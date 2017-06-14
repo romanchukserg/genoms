@@ -2,10 +2,11 @@
 #ifndef MaterialListH
 #define MaterialListH
 //---------------------------------------------------------------------------
-//#include <fstream.h>
-//#include <IniFiles.hpp>
+#include <fstream>
+#include <iostream>
 #include <math.h>
 #include <cstring>
+#include <complex>
 //---------------------------------------------------------------------------
 struct PropertyRecord
 {
@@ -25,7 +26,7 @@ class MaterialList
 {
     public:
         MaterialList();
-        MaterialList(char * fileName, char * path);
+        MaterialList(char * path, char * fileName);
         ~MaterialList();
 
         int getCountMaterial();
@@ -35,6 +36,10 @@ class MaterialList
         bool getMaterialNear(int number, double length, double & re, double & im);
         bool getMaterialNearRe(int number, double length, double & re);
         bool getMaterialNearIm(int number, double length, double & im);
+
+        std::complex<double> getMaterialNear(int number, double length);
+        double getMaterialNearRe(int number, double length);
+        double getMaterialNearIm(int number, double length);
 
     private:
         char * fileName;
