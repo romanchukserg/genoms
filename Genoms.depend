@@ -50,7 +50,7 @@
 1497286399 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
 	"Genotype.h"
 
-1497286399 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
+1500985870 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
 	"Gene.h"
 	"MaterialList.h"
 	<complex>
@@ -69,7 +69,7 @@
 	"Genotype.h"
 	"Genotype_001.h"
 
-1497415263 c:\users\romanchuk.serg\desktop\genoms\include\materiallist.h
+1500985878 c:\users\romanchuk.serg\desktop\genoms\include\materiallist.h
 	<fstream>
 	<iostream>
 	<math.h>
