@@ -139,12 +139,15 @@ bool Evolution::selection()
     if(parents[0]->getFitness() < minFitness)
     {
             MaterialList mr("C:\\MaterialListCreate", "_mlData.bin");
-            double re1, im1, re2, im2;
+            double re, im, re1, im1, re2, im2;
             mr.getMaterialNear(parents[0]->getGeneValue(2), parents[0]->getGeneValue(0), re1, im1);
             mr.getMaterialNear(parents[0]->getGeneValue(3), parents[0]->getGeneValue(0), re2, im2);
-            char name[100];
+            PersonManager::getDielectric(*(parents[0]), re, im);
+            char name[100] = "String for name materials";
             std::cout << "-YES ";
             std::cout << "\nfitness: " << parents[0]->getFitness();
+            std::cout << "\nre: " << re;
+            std::cout << "\nim: " << im;
             std::cout << "\nlen: " << parents[0]->getGeneValue(0);
             std::cout << "\nv: " << parents[0]->getGeneValue(1);
             mr.getMaterialName(parents[0]->getGeneValue(2), name);

@@ -9,6 +9,7 @@ class Genotype_001 : public Genotype
     public:
         Genotype_001();
         virtual double calculateFitness(Gene ** gens);
+        virtual bool getDielectric(Gene ** gens, double & re, double & im);
 };
 
 #endif // GENOTYPE_001_H

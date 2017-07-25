@@ -81,3 +81,14 @@ bool PersonManager::calculateFitness(Person & person)
 
     return true;
 }
+
+bool PersonManager::getDielectric(Person & person, double & re, double & im)
+{
+    if(person.numGenotype != GENOTYPE->getNum())
+    {
+        return false;
+    }
+
+    GENOTYPE->getDielectric(person.gens, re, im);
+    return true;
+}

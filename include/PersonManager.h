@@ -19,6 +19,7 @@ class PersonManager
         static bool mutation(Person & person);
         static bool crossing(Person & parent1, Person & parent2, Person ** child1, Person ** child2);
         static bool calculateFitness(Person & person);
+        static bool getDielectric(Person & person, double & re, double & im);
 
     private:
         PersonManager(){};

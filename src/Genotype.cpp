@@ -75,11 +75,6 @@ double Genotype::getCoeffMutation()
     return coeffMutation;
 }
 
-std::complex <double> Genotype::getTarget()
-{
-    return target;
-}
-
 bool Genotype::setGeneType(int num, typeGene tg)
 {
     if(num >= 0 && num < countGene)
@@ -146,8 +141,42 @@ bool Genotype::setCoeffMutation(double coeffMutation)
     return true;
 }
 
-bool Genotype::setTarget(std::complex <double> target)
+std::complex <double> Genotype::getTarget(int index)
 {
-    this->target = target;
+    if(targets.empty())
+        return 0;
+
+    if(index < 0 || index > targets.size())
+        return targets[0];
+
+    return targets[index];
+}
+
+bool Genotype::setTarget(std::complex <double> target, int index)
+{
+    if(targets.empty() || index < 0 || index > targets.size())
+        return false;
+
+    targets[index] = target;
+
     return true;
 }
+
+bool Genotype::addTarget(std::complex <double> target)
+{
+    targets.push_back(target);
+    return true;
+}
+
+bool Genotype::delTarget(int index)
+{
+    /*std::vector<std::complex <double> >::iterator it = targets.begin();
+    std::advance(it, index);
+    targets.erase(it);
+    return true;*/
+
+    targets.erase(targets.begin() + index);
+    return true;
+}
+
+

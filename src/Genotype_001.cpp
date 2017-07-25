@@ -21,21 +21,51 @@ Genotype_001::Genotype_001()
 
     coeffMutation = 0.3;
 
-    target.real(1);
-    target.imag(1);
+    addTarget(std::complex<double>(1, 1));
+    //target.real(1);
+    //target.imag(1);
 }
 
 double Genotype_001::calculateFitness(Gene ** gens)
 {
-    double re, re1, re2;
-    double im, im1, im2;
+    double re, im;
+
+    if(!getDielectric(gens, re, im))
+    {
+        return 100;
+    }
+
+    double a, b, s = 0;
+    //std::complex<double> target;
+    std::vector<std::complex<double> >::iterator it = targets.begin();
+
+    for(it = targets.begin(); it != targets.end(); it++)
+    {
+        a = (*it).real();
+        a = sqrt((*it).real()*(*it).real() + (*it).imag()*(*it).imag());
+        b = sqrt(((*it).real() - re)*((*it).real() - re) + ((*it).imag() - im)*((*it).imag() - im));
+        s += b/a;
+    }
+    //double a = sqrt((target.real()*target.real()) + (target.imag()*target.imag()));
+    //double b = sqrt((target.real() - re)*(target.real() - re) + (target.imag() - im)*(target.imag() - im));
+
+    //std::cout << " - " << gens[2]->getValue() << " - " << gens[3]->getValue();
+    //if(ml->getMaterialNearIm(0, 400, re))
+    //std::cout << " - " << ml->getCountMaterial();
+    return s/targets.size();
+}
+
+bool Genotype_001::getDielectric(Gene ** gens, double & re, double & im)
+{
+    double re1, re2;
+    double im1, im2;
 
     std::complex <double> e, e1, e2;
 
     if(!ml->getMaterialNear(gens[2]->getValue(), gens[0]->getValue(), re1, im1) ||
         !ml->getMaterialNear(gens[3]->getValue(), gens[0]->getValue(), re2, im2))
     {
-        return 100;
+        return false;
     }
 
     e1.real(re1);
@@ -43,18 +73,11 @@ double Genotype_001::calculateFitness(Gene ** gens)
     e2.real(re2);
     e2.imag(im2);
 
-    e = (e1*e2)/(e2 + (e1 - e2)*gens[1]->getValue());
-
-    //std::cout << e << std::endl;
+    //e = (e1*e2)/(e1*gens[1]->getValue() + e2*(1.0 - gens[1]->getValue()));
+    e = e1 * (1.0 - gens[1]->getValue()) + e2 * gens[1]->getValue();
 
     re = e.real();
     im = e.imag();
 
-    double a = sqrt((target.real()*target.real()) + (target.imag()*target.imag()));
-    double b = sqrt((target.real() - re)*(target.real() - re) + (target.imag() - im)*(target.imag() - im));
-
-    //std::cout << " - " << gens[2]->getValue() << " - " << gens[3]->getValue();
-    //if(ml->getMaterialNearIm(0, 400, re))
-    //std::cout << " - " << ml->getCountMaterial();
-    return b/a;
+    return true;
 }

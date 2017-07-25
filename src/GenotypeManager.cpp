@@ -15,8 +15,7 @@ Genotype * GenotypeManager::create(Genotype & gt)
 
     new_gt->typeC = gt.typeC;
     new_gt->coeffMutation = gt.coeffMutation;
-    new_gt->target.real(gt.target.real());
-    new_gt->target.imag(gt.target.imag());
+    new_gt->targets = gt.targets;
 
     for(int i = 0; i < gt.countGene; i++)
     {

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1497461935 source:c:\users\romanchuk.serg\desktop\genoms\main.cpp
+1500994566 source:c:\users\romanchuk.serg\desktop\genoms\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -7,20 +7,20 @@
 	"Person.h"
 	"Gene.h"
 
-1497462050 source:c:\users\romanchuk.serg\desktop\genoms\src\evolution.cpp
+1500997212 source:c:\users\romanchuk.serg\desktop\genoms\src\evolution.cpp
 	"Evolution.h"
 
-1497461806 c:\users\romanchuk.serg\desktop\genoms\include\evolution.h
+1500986441 c:\users\romanchuk.serg\desktop\genoms\include\evolution.h
 	<iostream>
 	"Person.h"
 	"PersonManager.h"
 	"Genotype.h"
 
-1497286399 c:\users\romanchuk.serg\desktop\genoms\include\person.h
+1500994206 c:\users\romanchuk.serg\desktop\genoms\include\person.h
 	<stdlib.h>
 	"Gene.h"
 
-1497286399 source:c:\users\romanchuk.serg\desktop\genoms\src\person.cpp
+1500994206 source:c:\users\romanchuk.serg\desktop\genoms\src\person.cpp
 	"Person.h"
 
 1497286399 c:\users\romanchuk.serg\desktop\genoms\include\gene.h
@@ -37,45 +37,46 @@
 1496929414 source:c:\users\romanchuk.serg\desktop\genoms\src\genemanager.cpp
 	"GeneManager.h"
 
-1497286399 source:c:\users\romanchuk.serg\desktop\genoms\src\personmanager.cpp
+1500994375 source:c:\users\romanchuk.serg\desktop\genoms\src\personmanager.cpp
 	"PersonManager.h"
 
-1497286399 c:\users\romanchuk.serg\desktop\genoms\include\personmanager.h
+1500993625 c:\users\romanchuk.serg\desktop\genoms\include\personmanager.h
 	"Person.h"
 	"Gene.h"
 	"Genotype.h"
 	"GenotypeManager.h"
 	<iostream>
 
-1497286399 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
+1500987791 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
 	"Genotype.h"
 
-1500985870 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
+1500993907 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
 	"Gene.h"
 	"MaterialList.h"
 	<complex>
+	<vector>
 
-1497459860 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype_001.cpp
+1500999013 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype_001.cpp
 	"Genotype_001.h"
 
-1497286399 c:\users\romanchuk.serg\desktop\genoms\include\genotype_001.h
+1500993897 c:\users\romanchuk.serg\desktop\genoms\include\genotype_001.h
 	"Gene.h"
 	"Genotype.h"
 
-1497286399 source:c:\users\romanchuk.serg\desktop\genoms\src\genotypemanager.cpp
+1500988041 source:c:\users\romanchuk.serg\desktop\genoms\src\genotypemanager.cpp
 	"GenotypeManager.h"
 
 1497286399 c:\users\romanchuk.serg\desktop\genoms\include\genotypemanager.h
 	"Genotype.h"
 	"Genotype_001.h"
 
-1500985878 c:\users\romanchuk.serg\desktop\genoms\include\materiallist.h
+1500986441 c:\users\romanchuk.serg\desktop\genoms\include\materiallist.h
 	<fstream>
 	<iostream>
 	<math.h>
 	<cstring>
 	<complex>
 
-1497459794 source:c:\users\romanchuk.serg\desktop\genoms\src\materiallist.cpp
+1500986441 source:c:\users\romanchuk.serg\desktop\genoms\src\materiallist.cpp
 	"MaterialList.h"
 

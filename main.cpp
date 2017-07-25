@@ -15,8 +15,12 @@ int main()
 
     Genotype * gt = GenotypeManager::create(1);
     gt->setGeneValueMax(1, 0.3);
+    gt->setGeneValue(2, 1);
+    gt->setGeneStable(2, 0);
+    //gt->setGeneValue(3, 9);
+    //gt->setGeneStable(3, 0);
     gt->setGeneStable(0, 0);
-    gt->setTarget(std::complex<double> (-9, 1));
+    gt->setTarget(std::complex<double> (-8.4375, 0.9), 0);
 
     Evolution *e = new Evolution(100, 1000, 0.001, *gt);
     e->run();

@@ -4,6 +4,7 @@
 #include "Gene.h"
 #include "MaterialList.h"
 #include <complex>
+#include <vector>
 
 enum typeCrossing{ tcOnePoint, tsMultiPoint, tcMask };
 
@@ -16,6 +17,7 @@ class Genotype
 
         virtual ~Genotype();
         virtual double calculateFitness(Gene ** gens) = 0;
+        virtual bool getDielectric(Gene ** gens, double & re, double & im) = 0;
 
         int getNum();
         int getCountGene();
@@ -30,8 +32,6 @@ class Genotype
 
         double getCoeffMutation();
 
-        std::complex <double> getTarget();
-
         bool setGeneType(int num, typeGene tg);
         bool setGeneValue(int num, double value);
         bool setGeneValueMax(int num, double valueMax);
@@ -43,7 +43,10 @@ class Genotype
 
         bool setCoeffMutation(double coeffMutation);
 
-        bool setTarget(std::complex <double> target);
+        std::complex <double> getTarget(int index);
+        bool setTarget(std::complex <double> target, int index);
+        bool addTarget(std::complex <double> target);
+        bool delTarget(int index);
 
     protected:
         Genotype(){};
@@ -57,7 +60,7 @@ class Genotype
 
         double coeffMutation;
 
-        std::complex <double> target;
+        std::vector<std::complex <double> > targets;
 
         MaterialList * ml;
 };
