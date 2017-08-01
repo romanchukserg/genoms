@@ -30,16 +30,42 @@ void Evolution::run()
         crossing();
         mutation();
         calculationFitness();
+
         if(selection())
         {
             std::cout << "\ncountAge " << countAge;
-
             return;
         }
+
         countAge++;
     }
 
     std::cout << "-NO";
+}
+
+void Evolution::run(double ** st)
+{
+    //std::cout << "\n\n run";
+
+    createPopulation();
+
+    int countAge = 0;
+    while(countAge < maxAge)
+    {
+        crossing();
+        mutation();
+        calculationFitness();
+        selection();
+
+        for(int i = 0; i < countPerson; i++)
+        {
+            st[countAge][i] = parents[i]->getFitness();
+        }
+
+        countAge++;
+    }
+
+    //std::cout << "-NO";
 }
 
 bool Evolution::clearPopulation()
@@ -138,6 +164,19 @@ bool Evolution::selection()
 
     if(parents[0]->getFitness() < minFitness)
     {
+        int ixM1 = parents[0]->getGeneValue(2);
+        int ixM2 = parents[0]->getGeneValue(3);
+
+        Genotype *g = PersonManager::getGenotype();
+
+        std::vector<int> m1 = g->getAml(2);
+        std::vector<int> m2 = g->getAml(3);
+
+        delete g;
+
+        if(m1.size() > 0)  ixM1 = m1[parents[0]->getGeneValue(2)];
+        if(m2.size() > 0)  ixM2 = m2[parents[0]->getGeneValue(3)];
+
             MaterialList mr("C:\\MaterialListCreate", "_mlData.bin");
             double re, im, re1, im1, re2, im2;
             mr.getMaterialNear(parents[0]->getGeneValue(2), parents[0]->getGeneValue(0), re1, im1);
@@ -150,12 +189,12 @@ bool Evolution::selection()
             std::cout << "\nim: " << im;
             std::cout << "\nlen: " << parents[0]->getGeneValue(0);
             std::cout << "\nv: " << parents[0]->getGeneValue(1);
-            mr.getMaterialName(parents[0]->getGeneValue(2), name);
-            std::cout << "\nM1: " << name;
+            mr.getMaterialName(ixM1, name);
+            std::cout << "\nM1: " << name << " (" << ixM1 << ")";
             std::cout << "\nre1: " << re1;
             std::cout << "\nim1: " << im1;
-            mr.getMaterialName(parents[0]->getGeneValue(3), name);
-            std::cout << "\nM2: " << name;
+            mr.getMaterialName(ixM2, name);
+            std::cout << "\nM2: " << name << " (" << ixM2 << ")";
             std::cout << "\nre2: " << re2;
             std::cout << "\nim2: " << im2;
 

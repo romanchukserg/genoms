@@ -15,6 +15,7 @@ class Evolution
         ~Evolution();
 
         void run();
+        void run(double ** st);
 
     private:
         int maxAge;

@@ -24,6 +24,8 @@ Genotype_001::Genotype_001()
     addTarget(std::complex<double>(1, 1));
     //target.real(1);
     //target.imag(1);
+
+    aml.resize(countGene);
 }
 
 double Genotype_001::calculateFitness(Gene ** gens)
@@ -61,9 +63,20 @@ bool Genotype_001::getDielectric(Gene ** gens, double & re, double & im)
     double im1, im2;
 
     std::complex <double> e, e1, e2;
+    int ixM1 = gens[2]->getValue();
+    int ixM2 = gens[3]->getValue();
 
-    if(!ml->getMaterialNear(gens[2]->getValue(), gens[0]->getValue(), re1, im1) ||
-        !ml->getMaterialNear(gens[3]->getValue(), gens[0]->getValue(), re2, im2))
+    if(aml[2].size() > 0)  ixM1 = aml[2][gens[2]->getValue()];
+    if(aml[3].size() > 0)  ixM2 = aml[3][gens[3]->getValue()];
+
+    //std::cout << aml[2].size() << " . \n";
+    //std::cout << aml[3].size() << " . \n";
+    //std::cout << ixM1 << "\n";
+    //std::cout << ixM2 << "\n";
+    //std::cout << gens[index]->getValueMax() << "\n";
+
+    if(!ml->getMaterialNear(ixM1, gens[0]->getValue(), re1, im1) ||
+        !ml->getMaterialNear(ixM2, gens[0]->getValue(), re2, im2))
     {
         return false;
     }

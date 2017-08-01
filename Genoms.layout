@@ -2,89 +2,89 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="src\Gene.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\GenotypeManager.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="254" topLine="0" />
+			<Cursor1 position="842" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="include\Genotype_001.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Evolution.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="146" topLine="0" />
+			<Cursor1 position="274" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="src\Person.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="754" topLine="36" />
-		</Cursor>
-	</File>
-	<File name="src\Evolution.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3333" topLine="140" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="540" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src\MaterialList.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="788" topLine="34" />
-		</Cursor>
-	</File>
-	<File name="src\PersonManager.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1967" topLine="75" />
-		</Cursor>
-	</File>
-	<File name="include\Evolution.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="261" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="include\PersonManager.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="623" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="include\Genotype.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="390" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="include\GenotypeManager.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\GenotypeManager.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="223" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\GenotypeManager.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Genotype.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="383" topLine="8" />
+			<Cursor1 position="3412" topLine="172" />
 		</Cursor>
 	</File>
-	<File name="include\Person.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\PersonManager.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="279" topLine="11" />
+			<Cursor1 position="226" topLine="33" />
 		</Cursor>
 	</File>
-	<File name="src\Genotype.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Evolution.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3237" topLine="0" />
+			<Cursor1 position="3401" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="include\Person.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="463" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="src\Gene.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1138" topLine="62" />
+		</Cursor>
+	</File>
+	<File name="include\PersonManager.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="621" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="src\Genotype_001.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2331" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="src\Person.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="754" topLine="74" />
+		</Cursor>
+	</File>
+	<File name="include\Genotype.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1532" topLine="39" />
 		</Cursor>
 	</File>
 	<File name="include\MaterialList.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="417" topLine="0" />
+			<Cursor1 position="1352" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="src\Genotype_001.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2310" topLine="61" />
+			<Cursor1 position="929" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="include\Genotype_001.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="146" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\MaterialList.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="788" topLine="34" />
 		</Cursor>
 	</File>
 	<File name="include\Gene.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="105" topLine="21" />
+			<Cursor1 position="131" topLine="21" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

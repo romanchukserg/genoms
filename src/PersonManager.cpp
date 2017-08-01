@@ -11,7 +11,6 @@ bool PersonManager::ini(Genotype & gt)
 
     GENOTYPE = GenotypeManager::create(gt);
 
-    //std::cout<<GENOTYPE
     return true;
 }
 
@@ -91,4 +90,9 @@ bool PersonManager::getDielectric(Person & person, double & re, double & im)
 
     GENOTYPE->getDielectric(person.gens, re, im);
     return true;
+}
+
+Genotype * PersonManager::getGenotype()
+{
+    return GenotypeManager::create(*GENOTYPE);
 }

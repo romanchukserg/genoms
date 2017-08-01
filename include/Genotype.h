@@ -1,6 +1,8 @@
 #ifndef GENOTYPE_H
 #define GENOTYPE_H
 
+#include <iostream>
+
 #include "Gene.h"
 #include "MaterialList.h"
 #include <complex>
@@ -48,6 +50,10 @@ class Genotype
         bool addTarget(std::complex <double> target);
         bool delTarget(int index);
 
+        std::vector <int> getAml(int index);
+        bool setAml(std::vector <int> value, int index);
+        bool delAml(int index);
+
     protected:
         Genotype(){};
 
@@ -63,6 +69,8 @@ class Genotype
         std::vector<std::complex <double> > targets;
 
         MaterialList * ml;
+        std::vector<std::vector <int> > aml;    //Available Materials List
+
 };
 
 #endif // GENOTYPE_H

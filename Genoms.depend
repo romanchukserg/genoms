@@ -1,16 +1,18 @@
 # depslib dependency file v1.0
-1500994566 source:c:\users\romanchuk.serg\desktop\genoms\main.cpp
+1501609742 source:c:\users\romanchuk.serg\desktop\genoms\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
+	<fstream>
+	<vector>
 	"Evolution.h"
 	"Person.h"
 	"Gene.h"
 
-1500997212 source:c:\users\romanchuk.serg\desktop\genoms\src\evolution.cpp
+1501609756 source:c:\users\romanchuk.serg\desktop\genoms\src\evolution.cpp
 	"Evolution.h"
 
-1500986441 c:\users\romanchuk.serg\desktop\genoms\include\evolution.h
+1501597284 c:\users\romanchuk.serg\desktop\genoms\include\evolution.h
 	<iostream>
 	"Person.h"
 	"PersonManager.h"
@@ -37,33 +39,34 @@
 1496929414 source:c:\users\romanchuk.serg\desktop\genoms\src\genemanager.cpp
 	"GeneManager.h"
 
-1500994375 source:c:\users\romanchuk.serg\desktop\genoms\src\personmanager.cpp
+1501609071 source:c:\users\romanchuk.serg\desktop\genoms\src\personmanager.cpp
 	"PersonManager.h"
 
-1500993625 c:\users\romanchuk.serg\desktop\genoms\include\personmanager.h
+1501609081 c:\users\romanchuk.serg\desktop\genoms\include\personmanager.h
 	"Person.h"
 	"Gene.h"
 	"Genotype.h"
 	"GenotypeManager.h"
 	<iostream>
 
-1500987791 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
+1501609297 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype.cpp
 	"Genotype.h"
 
-1500993907 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
+1501609321 c:\users\romanchuk.serg\desktop\genoms\include\genotype.h
+	<iostream>
 	"Gene.h"
 	"MaterialList.h"
 	<complex>
 	<vector>
 
-1500999013 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype_001.cpp
+1501602758 source:c:\users\romanchuk.serg\desktop\genoms\src\genotype_001.cpp
 	"Genotype_001.h"
 
-1500993897 c:\users\romanchuk.serg\desktop\genoms\include\genotype_001.h
+1500999606 c:\users\romanchuk.serg\desktop\genoms\include\genotype_001.h
 	"Gene.h"
 	"Genotype.h"
 
-1500988041 source:c:\users\romanchuk.serg\desktop\genoms\src\genotypemanager.cpp
+1501602098 source:c:\users\romanchuk.serg\desktop\genoms\src\genotypemanager.cpp
 	"GenotypeManager.h"
 
 1497286399 c:\users\romanchuk.serg\desktop\genoms\include\genotypemanager.h

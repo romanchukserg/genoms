@@ -143,11 +143,8 @@ bool Genotype::setCoeffMutation(double coeffMutation)
 
 std::complex <double> Genotype::getTarget(int index)
 {
-    if(targets.empty())
+    if(targets.empty() || index < 0 || index > targets.size())
         return 0;
-
-    if(index < 0 || index > targets.size())
-        return targets[0];
 
     return targets[index];
 }
@@ -176,6 +173,36 @@ bool Genotype::delTarget(int index)
     return true;*/
 
     targets.erase(targets.begin() + index);
+    return true;
+}
+
+std::vector <int> Genotype::getAml(int index)
+{
+    if(aml.empty() || index < 0 || index > aml.size())
+        return std::vector <int>();
+
+    return aml[index];
+}
+
+bool Genotype::setAml(std::vector <int> value, int index)
+{
+    if(aml.empty() || index < 0 || index > aml.size())
+        return false;
+
+    aml[index] = value;
+    gens[index]->setValueMax(value.size());
+
+    return true;
+}
+
+bool Genotype::delAml(int index)
+{
+    if(aml.empty() || index < 0 || index > aml.size())
+        return false;
+
+    aml[index].clear();
+    gens[index]->setValueMax(ml->getCountMaterial());
+
     return true;
 }
 
